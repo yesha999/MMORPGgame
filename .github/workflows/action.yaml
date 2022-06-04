@@ -25,6 +25,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "infra/docker-compose.yaml"
+          target: .
           strip_components: 1
       - name: run docker-compose
         uses: appleboy/ssh-action@master
