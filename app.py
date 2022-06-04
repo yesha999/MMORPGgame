@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 from base import Arena
 from classes import unit_classes
@@ -91,7 +91,7 @@ def choose_hero_post():
     player.equip_weapon(weapon)
     player.equip_armor(armor)
     heroes['player'] = player
-    return redirect('/choose-enemy/', code=302)
+    return redirect(url_for('choose_enemy_get'), code=302)
 
 
 @app.route("/choose-enemy/", methods=['get'])
@@ -124,7 +124,7 @@ def choose_enemy_post():
     enemy.equip_weapon(weapon)
     enemy.equip_armor(armor)
     heroes['enemy'] = enemy
-    return redirect('/fight/', code=302)
+    return redirect(url_for('start_fight'), code=302)
 
 
 if __name__ == "__main__":

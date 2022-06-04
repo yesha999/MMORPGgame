@@ -57,7 +57,7 @@ class BaseUnit(ABC):
         attacker_damage = self.weapon.damage * self.unit_class.attack
         target_armor = 0
         if target.stamina >= target.armor.stamina_per_turn:
-            target.stamina = target.stamina - target.armor.stamina_per_turn
+            target.stamina -= target.armor.stamina_per_turn
             target_armor = target.armor.defence * target.unit_class.armor
         damage = attacker_damage - target_armor
         target.get_damage(damage)
