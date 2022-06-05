@@ -24,7 +24,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: "infra/docker-compose.yaml"
+          source: "infra/docker-compose.yaml,infra/nginx.conf "
           target: .
           strip_components: 1
       - name: run docker-compose
