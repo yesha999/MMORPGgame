@@ -24,7 +24,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: "infra/docker-compose.yaml,infra/nginx.conf "
+          source: "infra/docker-compose.yaml,infra/nginx.conf"
           target: .
           strip_components: 1
       - name: run docker-compose
@@ -34,5 +34,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
+            ls
             echo ${{ secrets.PASSWORD }} | sudo -S docker-compose down -d
             echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
