@@ -1,11 +1,10 @@
 version: '3.3'
 
 services:
-  api:
-    image: yesha999/course_work_5
-    ports:
-      - 80:80
-    command: gunicorn --bind 0.0.0.0:5000 wsgi:api
+
+  app:
+    image: yesha999/course_work_5:${GITHUB_REF_NAME}-$GITHUB_RUN_ID
+    command: gunicorn --bind 0.0.0.0:5000 wsgi:app
     restart: always
 
   nginx:
