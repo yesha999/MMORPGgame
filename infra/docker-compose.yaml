@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   app:
-    image: yesha999/course_work_5:${GITHUB_REF_NAME}-$GITHUB_RUN_ID
+    image: yesha999/course_work_5:${GITHUB_REF_NAME}-${GITHUB_RUN_ID}
     command: gunicorn --bind 0.0.0.0:5000 wsgi:app
     restart: always
 
